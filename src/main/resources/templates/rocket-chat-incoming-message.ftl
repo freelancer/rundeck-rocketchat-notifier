@@ -15,7 +15,7 @@
 {
    "channel":"${channel}",
    "attachments":[
-      {  
+      {
 	 "title":"RunDeck Job ${state}",
          "channel":"${channel}",
          "icon_emoji":":rundeck:",
@@ -24,7 +24,7 @@
          "fields":[
             {
                "title":"Job Name",
-               "value":"<${executionData.job.href}|${jobName}>",
+               "value":"[${jobName}](${executionData.job.href})",
                "short":true
             },
             {
@@ -39,7 +39,7 @@
             },
             {
                "title":"Execution ID",
-               "value":"<${executionData.href}|#${executionData.id}>",
+               "value":"[#${executionData.id}](${executionData.href})",
                "short":true
             },
             {
