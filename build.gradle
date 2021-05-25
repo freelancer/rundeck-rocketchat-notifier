@@ -1,6 +1,6 @@
 apply plugin: 'java'
 sourceCompatibility = 1.6
-project.version = 0.1
+project.version = '0.1.2'
 defaultTasks 'clean', 'build'
 
 configurations{
@@ -42,6 +42,6 @@ jar {
 //set jar task to depend on copyToLib
 jar.dependsOn(copyToLib)
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '1.10'
+wrapper {
+    gradleVersion = '6.7'
 }
