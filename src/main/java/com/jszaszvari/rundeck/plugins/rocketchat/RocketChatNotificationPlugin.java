@@ -58,9 +58,9 @@ import org.json.*;
 @PluginDescription(title="Rocket.Chat Notification", description="Sends a Rundeck Notification to Rocket.Chat")
 public class RocketChatNotificationPlugin implements NotificationPlugin {
 
-    private static final String ROCKET_CHAT_MESSAGE_COLOR_GREEN = "good";
-    private static final String ROCKET_CHAT_MESSAGE_COLOR_YELLOW = "warning";
-    private static final String ROCKET_CHAT_MESSAGE_COLOR_RED = "danger";
+    private static final String ROCKET_CHAT_MESSAGE_COLOR_GREEN = "green";
+    private static final String ROCKET_CHAT_MESSAGE_COLOR_ORANGE = "orange";
+    private static final String ROCKET_CHAT_MESSAGE_COLOR_RED = "red";
 
     private static final String ROCKET_CHAT_MESSAGE_FROM_NAME = "Rundeck";
 //    private static final String ROCKET_CHAT_EXT_MESSAGE_TEMPLATE_PATH = "/var/lib/rundeck/libext/templates";
@@ -114,7 +114,7 @@ public class RocketChatNotificationPlugin implements NotificationPlugin {
             FREEMARKER_CFG.setTemplateLoader(mtl);
             ACTUAL_ROCKET_CHAT_TEMPLATE = message_template;
 
-        TRIGGER_NOTIFICATION_DATA.put(TRIGGER_START,   new RocketChatNotificationData(ACTUAL_ROCKET_CHAT_TEMPLATE, ROCKET_CHAT_MESSAGE_COLOR_YELLOW));
+        TRIGGER_NOTIFICATION_DATA.put(TRIGGER_START,   new RocketChatNotificationData(ACTUAL_ROCKET_CHAT_TEMPLATE, ROCKET_CHAT_MESSAGE_COLOR_ORANGE));
         TRIGGER_NOTIFICATION_DATA.put(TRIGGER_SUCCESS, new RocketChatNotificationData(ACTUAL_ROCKET_CHAT_TEMPLATE, ROCKET_CHAT_MESSAGE_COLOR_GREEN));
         TRIGGER_NOTIFICATION_DATA.put(TRIGGER_FAILURE, new RocketChatNotificationData(ACTUAL_ROCKET_CHAT_TEMPLATE, ROCKET_CHAT_MESSAGE_COLOR_RED));
 
