@@ -1,14 +1,14 @@
 apply plugin: 'java'
-sourceCompatibility = 1.6
-project.version = 0.6
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+project.version = 0.7
 defaultTasks 'clean', 'build'
 
 configurations{
     //declare custom pluginLibs configuration to include only libs for this plugin
     pluginLibs
 
-    //declare compile to extend from pluginLibs so it inherits the dependencies
-    compile{
+    implementation {
         extendsFrom pluginLibs
     }
 }
@@ -20,7 +20,9 @@ repositories {
 dependencies {
     pluginLibs group: 'org.freemarker', name: 'freemarker', version: '2.3.20'
     pluginLibs group: 'org.json', name: 'json', version: '20180130'
-    compile(group:'org.rundeck', name: 'rundeck-core', version: '2.1.1')
+    implementation(group: 'org.freemarker', name: 'freemarker', version: '2.3.20')
+    implementation(group: 'org.json', name: 'json', version: '20180130')
+    implementation(group:'org.rundeck', name: 'rundeck-core', version: '2.1.1')
 }
 
 // task to copy plugin libs to output/lib dir
@@ -42,7 +44,3 @@ jar {
 
 //set jar task to depend on copyToLib
 jar.dependsOn(copyToLib)
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '1.10'
-}
